@@ -1,0 +1,36 @@
+name: Outdated Dependencies Check
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  outdated-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Check outdated packages
+        id: outdated
+        run: |
+          echo "### 📦 Outdated Packages" >> report.md
+          echo "\`\`\`" >> report.md
+          dotnet list package --outdated >> report.md || true
+          echo "\`\`\`" >> report.md
+
+      - name: Comment on PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: outdated-packages
+          path: report.md
