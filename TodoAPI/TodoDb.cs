@@ -10,6 +10,7 @@ public class TodoDb(DbContextOptions<TodoDb> options) : DbContext(options)
 
         modelBuilder.Entity<Todo>()
             .Property(t => t.Title)
-            .HasMaxLength(200);
+            .HasMaxLength(200)
+            .IsRequired();
     }
 }
