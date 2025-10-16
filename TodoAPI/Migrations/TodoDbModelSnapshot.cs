@@ -23,6 +23,7 @@ namespace TodoAPI.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsComplete")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
