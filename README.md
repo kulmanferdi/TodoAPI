@@ -12,3 +12,9 @@ Simple Todo API implementation.
 - `POST /todos`: Create a new todo item
 - `PUT /todos/<id>`: Update an existing todo item by ID
 - `DELETE /todos/<id>`: Delete a todo item by ID
+
+## Contributing
+Open for contributions!
+
+## License
+MIT License
