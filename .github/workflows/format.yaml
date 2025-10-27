@@ -22,5 +22,5 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build
+      - name: Format code
         run: dotnet format
