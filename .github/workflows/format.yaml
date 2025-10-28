@@ -1,4 +1,4 @@
-name: Build .NET Application
+name: Format Code CI Pipeline
 
 on:
   push:
