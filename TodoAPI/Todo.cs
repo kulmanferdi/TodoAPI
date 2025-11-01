@@ -2,7 +2,7 @@ namespace TodoAPI;
 
 public class Todo
 {
-    public int Id { get; set; }
+    public int Id { get; init; }
 
     [MaxLength(200)]
     [Required]

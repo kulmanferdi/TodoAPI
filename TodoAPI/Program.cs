@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<TodoDb>(opt =>
-    opt.UseSqlite("Data Source=todos.db"));
+    opt.UseSqlite("Data Source=Database/todos.db"));
 
 var app = builder.Build();
 
