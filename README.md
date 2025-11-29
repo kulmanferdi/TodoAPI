@@ -7,7 +7,7 @@ Simple Todo API implementation.
 - SQLite database for data storage
 
 ## Requirements
-- dotnet 9.0 SDK or later
+- dotnet 10 SDK
 - Entity Framework Core
 - SQLite
 - xUnit for testing
@@ -15,9 +15,16 @@ Simple Todo API implementation.
 ## Endpoints
 - `GET /todos`: Retrieve all todo items
 - `GET /todos/<id>`: Retrieve a specific todo item by ID
+- `GET /todos/completed`: Retrieve all completed todo items
+- `GET /todos/incomplete`: Retrieve all not completed todo items
+- `GET /todos/count`: Retrieve the count of todo items
+- `GET /todos/count/completed`: Retrieve the count of completed todo items
+- `GET /todos/count/incomplete`: Retrieve the count of not completed todo items
 - `POST /todos`: Create a new todo item
+- `PATCH /todos/<id>/completed`: Mark a todo item as completed by ID
 - `PUT /todos/<id>`: Update an existing todo item by ID
 - `DELETE /todos/<id>`: Delete a todo item by ID
+- `DELETE /todos/completed`: Delete all completed todo items
 
 
 ## Run
