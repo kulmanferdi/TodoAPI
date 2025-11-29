@@ -1,6 +1,42 @@
 @TodoAPI_HostAddress = http://localhost:5043
 
-GET {{TodoAPI_HostAddress}}/weatherforecast/
+### Get All Todos
+GET {{TodoAPI_HostAddress}}/todos/
 Accept: application/json
 
-###
+### Get Todo by ID
+GET {{TodoAPI_HostAddress}}/todos/1
+Accept: application/json
+
+### Get todo count
+GET {{TodoAPI_HostAddress}}/todos/count
+Accept: application/json
+
+### Create a New Todo
+POST {{TodoAPI_HostAddress}}/todos/
+Content-Type: application/json
+
+{
+  "title": "New Todo Item",
+  "isCompleted": false
+}
+
+### Mark Todo as Completed
+PATCH {{TodoAPI_HostAddress}}/todos/1/complete
+Accept: application/json
+
+### Update an Existing Todo
+PUT {{TodoAPI_HostAddress}}/todos/1
+Content-Type: application/json
+
+{
+  "title": "Updated Todo Item"
+}
+
+### Delete a Todo
+DELETE {{TodoAPI_HostAddress}}/todos/1
+Accept: application/json
+
+### Delete completed Todos
+DELETE {{TodoAPI_HostAddress}}/todos/completed
+Accept: application/json
