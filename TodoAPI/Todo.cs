@@ -1,5 +1,6 @@
 namespace TodoAPI;
 
+[Table("Todos")]
 public class Todo
 {
     public int Id { get; init; }

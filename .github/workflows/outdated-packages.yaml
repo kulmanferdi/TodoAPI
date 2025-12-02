@@ -16,20 +16,30 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x'
+          dotnet-version: '10.0.x'
 
       - name: Restore
         run: dotnet restore
 
-      - name: Check outdated packages
+      - name: Generate outdated dependencies report
         id: outdated
         run: |
-          echo "### 📦 Outdated Packages" >> report.md
+          echo "### 📦 Outdated Dependencies Report" > report.md
+          echo "" >> report.md
+          echo "**Checked on:** $(date)" >> report.md
+          echo "" >> report.md
           echo "\`\`\`" >> report.md
           dotnet list package --outdated >> report.md || true
           echo "\`\`\`" >> report.md
 
-      - name: Comment on PR
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: outdated-dependencies-report
+          path: report.md
+
+      - name: Comment on PR with report
+        if: github.event_name == 'pull_request'
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: outdated-packages

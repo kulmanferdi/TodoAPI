@@ -8,7 +8,7 @@ Accept: application/json
 GET {{TodoAPI_HostAddress}}/todos/1
 Accept: application/json
 
-### Get todo count
+### Get Todo count
 GET {{TodoAPI_HostAddress}}/todos/count
 Accept: application/json
 
@@ -17,12 +17,12 @@ POST {{TodoAPI_HostAddress}}/todos/
 Content-Type: application/json
 
 {
-  "title": "New Todo Item",
+  "title": "do something",
   "isCompleted": false
 }
 
 ### Mark Todo as Completed
-PATCH {{TodoAPI_HostAddress}}/todos/1/complete
+PATCH {{TodoAPI_HostAddress}}/todos/complete/10
 Accept: application/json
 
 ### Update an Existing Todo
@@ -40,3 +40,12 @@ Accept: application/json
 ### Delete completed Todos
 DELETE {{TodoAPI_HostAddress}}/todos/completed
 Accept: application/json
+
+### Get Todo in ascending order
+GET {{TodoAPI_HostAddress}}/todos/ordered/asc
+
+### Get Todo in descending order
+GET {{TodoAPI_HostAddress}}/todos/ordered/desc
+
+### Serach for a term in Todo title
+GET {{TodoAPI_HostAddress}}/todos/search/do

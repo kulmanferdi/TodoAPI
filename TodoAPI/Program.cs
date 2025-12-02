@@ -1,9 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("Default");
+
 builder.Services.AddDbContext<TodoDb>(opt =>
-    opt.UseSqlite("Data Source=Database/todos.db"));
+    opt.UseSqlite(connectionString));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<TodoDb>();
+    db.Database.Migrate();
+}
 
 app.MapGet("/todos", async (TodoDb db) =>
     await db.Todos.ToListAsync());
@@ -28,13 +36,13 @@ app.MapGet("/todos/search/{term}", async (string term, TodoDb db) =>
         .Where(t => t.Title.Contains(term))
         .ToListAsync());
 
-app.MapGet("/todos/ordered/asc", async (TodoDb db) =>
-    await db.Todos.OrderBy(t => t.Title).ToListAsync());
+app.MapGet("/todos/ordered/asc", (TodoDb db) =>
+    db.Todos.OrderBy(t => t.Title).ToListAsync()
+);
 
-app.MapGet("/todos/ordered/desc", async (TodoDb db) =>
-    await db.Todos
-        .OrderByDescending(t => t.Title)
-        .ToListAsync());
+app.MapGet("/todos/ordered/desc", (TodoDb db) =>
+    db.Todos.OrderByDescending(t => t.Title).ToListAsync()
+);
 
 app.MapGet("/todos/{id}", async (int id, TodoDb db) =>
     await db.Todos.FindAsync(id) is { } todo

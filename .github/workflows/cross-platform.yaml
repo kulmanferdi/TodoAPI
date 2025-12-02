@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        dotnet: ['8.0.x', '9.0.x']
+        dotnet: ['8.0.x', '9.0.x', '10.0.x']
       fail-fast: false 
 
     steps:
@@ -38,7 +38,7 @@ jobs:
         if: always()
         with:
           name: test-results-${{ matrix.os }}-${{ matrix.dotnet }}
-          path: TestResults/
+          path: '**/TestResults/**'
           
       - name: Collect Coverage
         run: dotnet test --collect:"XPlat Code Coverage"
