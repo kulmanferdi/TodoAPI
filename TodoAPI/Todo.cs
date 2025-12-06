@@ -5,8 +5,8 @@ public class Todo
 {
     public int Id { get; init; }
 
-    [MaxLength(200)]
     [Required]
+    [MaxLength(200)]
     public string Title { get; set; } = string.Empty;
 
     [Required]

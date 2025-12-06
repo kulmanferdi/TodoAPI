@@ -28,7 +28,7 @@ public class DeleteTests
 
     }
     
-[Fact]
+    [Fact]
     public async Task PostDeleteTodo()
     {
         await using var db = GetInMemoryDb();
