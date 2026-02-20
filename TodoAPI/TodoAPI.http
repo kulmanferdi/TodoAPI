@@ -43,9 +43,12 @@ Accept: application/json
 
 ### Get Todo in ascending order
 GET {{TodoAPI_HostAddress}}/todos/ordered/asc
+Accept: application/json
 
 ### Get Todo in descending order
 GET {{TodoAPI_HostAddress}}/todos/ordered/desc
+Accept: application/json
 
 ### Serach for a term in Todo title
 GET {{TodoAPI_HostAddress}}/todos/search/do
+Accept: application/json
