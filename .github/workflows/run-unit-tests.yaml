@@ -1,4 +1,4 @@
-name: Run XUnit tests - CI
+name: Run xUnit tests - CI
 
 on:
   push:
@@ -22,5 +22,8 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
+      - name: Build solution
+        run: dotnet build --no-restore --configuration Release
+
       - name: Run unit tests
-        run: dotnet test
+        run: dotnet test --no-build --verbosity normal
