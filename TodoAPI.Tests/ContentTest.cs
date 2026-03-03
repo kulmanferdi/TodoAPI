@@ -16,7 +16,7 @@ public class ContentTest
             return Task.FromException(exception);
         }
     }
-    
+
     [Fact]
     public Task TitleTest()
     {
@@ -31,7 +31,7 @@ public class ContentTest
             return Task.FromException(exception);
         }
     }
-    
+
     [Fact]
     public Task ModifyTitleTest()
     {
@@ -48,7 +48,7 @@ public class ContentTest
             return Task.FromException(exception);
         }
     }
-    
+
     [Fact]
     public async Task ClearTitleTest()
     {
@@ -58,6 +58,20 @@ public class ContentTest
             Assert.Equal("Foo", todo.Title);
             todo.Title = "";
             Assert.Equal("", todo.Title);
+        }
+        catch (Exception exception)
+        {
+            await Task.FromException(exception);
+        }
+    }
+
+    [Fact]
+    public async Task NullTitleTest()
+    {
+        try
+        {
+            var todo = new Todo { Title = null, IsComplete = false };
+            Assert.Null(todo.Title);
         }
         catch (Exception exception)
         {
