@@ -12,8 +12,7 @@ Simple Todo API implementation.
 - SQLite
 - xUnit for testing
 
-## Endpoints
-Here is the list of all available endpoints.
+## API Endpoints
 
 ### GET
 - `GET /todos`: Retrieve all todo items
@@ -40,22 +39,8 @@ Here is the list of all available endpoints.
 - `DELETE /todos/<id>`: Delete a todo item by ID
 - `DELETE /todos/completed`: Delete all completed todo items
 
-
-## Run
-```sh
-dotnet run
-```
-App will start on localhost, use [Postman](https://www.postman.com/), [Yaak](https://yaak.app/), [Insomnia](https://insomnia.rest/) or Curl to interact with the API.
-
-Alternatively, you can use the pre-written **HTTP** requests found in the [TodoAPI.http](/TodoAPI/TodoAPI.http) file.
-
-## Test
-```sh
-dotnet test
-```
-
 ## Contributing
-Open for contributions!
+Feel free to submit issues or pull requests. Please use the templates provided in the repository.
 
 ## License
-MIT
+Source code is distributed under MIT license. See LICENSE file for more information.
