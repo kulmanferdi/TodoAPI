@@ -7,7 +7,7 @@ public class Todo
 
     [Required]
     [MaxLength(200)]
-    public string Title { get; set; } = string.Empty;
+    public string? Title { get; set; } = string.Empty;
 
     [Required]
     public bool IsComplete { get; set; }

@@ -8,6 +8,7 @@ public class TodoItemTests
         var todo = new Todo { Id = 1, Title = "Buy milk" };
         Assert.Equal(1, todo.Id);
         Assert.Equal("Buy milk", todo.Title);
+        Assert.False(todo.IsComplete);
     }
 
     [Fact]
