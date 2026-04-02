@@ -3,3 +3,7 @@ global using Microsoft.EntityFrameworkCore;
 global using Xunit;
 global using System.Linq;
 global using System.Threading.Tasks;
+global using System.Net;
+global using System.Net.Http.Json;
+global using Microsoft.AspNetCore.Mvc.Testing;
+global using Microsoft.Extensions.DependencyInjection;
