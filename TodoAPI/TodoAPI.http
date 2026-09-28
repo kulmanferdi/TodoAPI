@@ -1,18 +1,46 @@
 @TodoAPI_HostAddress = http://localhost:5043
 
-### Get All Todos
+### Get All Todo items
 GET {{TodoAPI_HostAddress}}/todos/
 Accept: application/json
 
-### Get Todo by ID
+### Get Todo item by ID
 GET {{TodoAPI_HostAddress}}/todos/1
 Accept: application/json
 
-### Get Todo count
+### Get Todo item count
 GET {{TodoAPI_HostAddress}}/todos/count
 Accept: application/json
 
-### Create a New Todo
+### Get completed Todo items
+GET {{TodoAPI_HostAddress}}/todos/completed
+Accept: application/json
+
+### Get incomplete Todo items
+GET {{TodoAPI_HostAddress}}/todos/completed
+Accept: application/json
+
+### Count completed Todo items
+GET {{TodoAPI_HostAddress}}/todos/count/completed
+Accept: application/json
+
+### Count incomplete Todo items
+GET {{TodoAPI_HostAddress}}/todos/count/incomplete
+Accept: application/json
+
+### Get Todo items in ascending order
+GET {{TodoAPI_HostAddress}}/todos/ordered/asc
+Accept: application/json
+
+### Get Todo items in descending order
+GET {{TodoAPI_HostAddress}}/todos/ordered/desc
+Accept: application/json
+
+### Serach for a term in Todo title
+GET {{TodoAPI_HostAddress}}/todos/search/do
+Accept: application/json
+
+### Create a New Todo item
 POST {{TodoAPI_HostAddress}}/todos/
 Content-Type: application/json
 
@@ -21,11 +49,11 @@ Content-Type: application/json
   "isCompleted": false
 }
 
-### Mark Todo as Completed
+### Mark Todo item as Completed
 PATCH {{TodoAPI_HostAddress}}/todos/complete/10
 Accept: application/json
 
-### Update an Existing Todo
+### Update an Existing Todo item
 PUT {{TodoAPI_HostAddress}}/todos/1
 Content-Type: application/json
 
@@ -33,22 +61,10 @@ Content-Type: application/json
   "title": "Updated Todo Item"
 }
 
-### Delete a Todo
+### Delete a Todo item
 DELETE {{TodoAPI_HostAddress}}/todos/1
 Accept: application/json
 
-### Delete completed Todos
+### Delete completed Todo items
 DELETE {{TodoAPI_HostAddress}}/todos/completed
-Accept: application/json
-
-### Get Todo in ascending order
-GET {{TodoAPI_HostAddress}}/todos/ordered/asc
-Accept: application/json
-
-### Get Todo in descending order
-GET {{TodoAPI_HostAddress}}/todos/ordered/desc
-Accept: application/json
-
-### Serach for a term in Todo title
-GET {{TodoAPI_HostAddress}}/todos/search/do
 Accept: application/json
